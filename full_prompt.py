@@ -18,7 +18,7 @@ for i in range(n):
 
 #takes 60 datapoints from each amount of correct
 data60_sorted = []
-for i in range(len(correct_list+1)):
+for i in range(len(correct_list)+1):
     data60_sorted += [row for row in dataset if row[1] == i][:60]
 
 #takes only the answers
