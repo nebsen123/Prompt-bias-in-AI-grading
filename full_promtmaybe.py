@@ -57,17 +57,18 @@ for i in range(len(data60)):
         real_data.append(f"{data60[i]} {tone}")
 responce_list = []
 
-with open("1dimentionhyperplan.png", "rb") as f:
-    image_data = base64.b64encode(f.read()).decode("utf-8")
+#with image
+#with open("1dimentionhyperplan.png", "rb") as f:
+#    image_data = base64.b64encode(f.read()).decode("utf-8")
 
 for datapoint in real_data:
     for tone in tones:
         response = requests.post("http://localhost:11434/api/chat", json={
             "model": "qwen:latest",
             "messages": [{"role": "user", "content": f"""
-            These are my answers to the multiple choice questions:
-            {datapoint} where, 0 is the first answer choice, 1 is the second answer choice.
+            These are my answers to the multiple choice questions where, 0 is the first answer choice, 1 is the second answer choice:{datapoint} 
             {tone}
+            Heres the test:
             What's Bigger?
             1. Earth or Mars
             2. Africa or South America
@@ -90,7 +91,6 @@ for datapoint in real_data:
         print(response.json())
         print(response.status_code)
         responce_list.append(response.json()["message"]["content"])
-        break
 #Save to json file
 with open("responce_list.json", "w") as f:
     json.dump(responce_list, f)
