@@ -1,5 +1,5 @@
 #!/bin/bash
-#BSUB -J Batch1
+#BSUB -J Batch2
 #BSUB -q gpuv100
 #BSUB -R "rusage[mem=32GB]"
 #BSUB -B
@@ -29,7 +29,7 @@ until curl -s http://127.0.0.1:11434/health | grep -q '"status":"ok"'; do
 done
 echo "Server is up, starting batch jobs..."
  
-python3 batch1.py > joboutput_batch1_$LSB_JOBID.out 2>&1
+python3 batch2.py > joboutput_batch1_$LSB_JOBID.out 2>&1
  
 # Shuts down the server
 kill %1

@@ -1,5 +1,4 @@
 import json
-import base64
 import requests
 import random
 correct_list = "DBADCBACBDABCDACAADBDBACDCB"
@@ -57,14 +56,10 @@ for i in range(len(data60)):
     for tone in tones:
         real_data.append(f"{data60[i]} {tone}")
 responce_list = []
-
-with open("IMG_20220322_222814.jpg", "rb") as f:
-    image_data = base64.b64encode(f.read()).decode("utf-8")
-
-for i in range(1):
+for i in range(10):
     response = requests.post("http://localhost:11434/api/chat", json={
         "model": "qwen:latest",
-        "messages": [{"role": "user", "content": f"hey","images": [image_data]}],
+        "messages": [{"role": "user", "content": f"hey"}],
         "stream": False
     })
 
