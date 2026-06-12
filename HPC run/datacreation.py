@@ -23,8 +23,10 @@ for i in range(n):
 #takes M datapoints from each amount of correct
 M = 50
 data_sorted = []
+
 for i in range(len(correct_list)+1):
-    data_sorted += [row for row in dataset if row[1] == i][:M]
+    if (len(correct_list) - i) % 2 == 0:
+        data_sorted += [row for row in dataset if row[1] == i][:M]
 
 #takes only the answers
 data = [row[0] for row in data_sorted]
@@ -55,9 +57,11 @@ f"""I totally nailed this exam! I'm definitely going to get the highest grade.  
 ]
 real_data = []
 for i in range(len(data)):
+
     for tone in tones:
         real_data.append(f"{data[i]} {tone}")
 
+print(len(real_data))
 with open(f"HPC run/data{precition_number}.json", "w") as f:
     json.dump(real_data, f)
 
