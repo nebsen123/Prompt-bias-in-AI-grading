@@ -376,7 +376,6 @@ answer_key_id,true_mistakes,prompt_type,ai_estimated_mistakes
 110010010110111 ,14,very_confident,12
 111010010110110 ,14,very_pessimistic,12
 111010010110110 ,14,pessimistic,12
-111010010110110 ,14,neutral,not found
 111010010110110 ,14,confident,12
 111010010110110 ,14,very_confident,12
 111010010110011 ,14,very_pessimistic,12

@@ -1,4 +1,4 @@
-answer_key_id,True_error,prompt_type,ai_error
+answer_key_id,true_mistakes,prompt_type,ai_estimated_mistakes
 111010010110111 ,15,very_pessimistic,not found
 111010010110111 ,15,pessimistic,not found
 111010010110111 ,15,neutral,not found
