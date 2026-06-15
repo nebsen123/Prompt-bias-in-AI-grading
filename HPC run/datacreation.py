@@ -25,7 +25,9 @@ M = 50
 data_sorted = []
 
 for i in range(len(correct_list)+1):
-    if (len(correct_list) - i) % 2 == 0:
+    if (len(correct_list) - i) % 2 == 1:
+        data_sorted += [row for row in dataset if row[1] == i][:M+50]
+    else:
         data_sorted += [row for row in dataset if row[1] == i][:M]
 
 #takes only the answers
@@ -62,6 +64,6 @@ for i in range(len(data)):
         real_data.append(f"{data[i]} {tone}")
 
 print(len(real_data))
-#with open(f"HPC run/data{precition_number}.json", "w") as f:
-#    json.dump(real_data, f)
+with open(f"HPC run/data{precition_number}.json", "w") as f:
+    json.dump(real_data, f)
 
