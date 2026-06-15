@@ -62,6 +62,6 @@ for i in range(len(data)):
         real_data.append(f"{data[i]} {tone}")
 
 print(len(real_data))
-with open(f"HPC run/data{precition_number}.json", "w") as f:
-    json.dump(real_data, f)
+#with open(f"HPC run/data{precition_number}.json", "w") as f:
+#    json.dump(real_data, f)
 
