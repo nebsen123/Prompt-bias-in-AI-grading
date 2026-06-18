@@ -2,7 +2,7 @@ import json
 import requests
 import os
 import numpy as np
-with open("data.json", "r") as f:
+with open("data1.json", "r") as f:
     data = json.load(f)
 
 responce_list = []
@@ -11,7 +11,7 @@ batches = np.array_split(data, 10)
 
 for datapoint in batches[batch_number-1]:
     response = requests.post("http://127.0.0.1:11434/v1/chat/completions", json={
-    "model": "qwen3",
+    "model": "gpt oss",
     "messages": [{"role": "user", "content": f"""
             These are my answers to the multiple choice questions where, 0 is the first answer choice, 1 is the second answer choice:{datapoint}
             Heres the test:
@@ -35,8 +35,8 @@ for datapoint in batches[batch_number-1]:
     "stream": False
     })
     responce_list.append(response.json()["choices"][0]["message"]["content"])
+    #Save to json file
+    with open(f"responce{batch_number}{batch_number}.json", "w") as f:
+        json.dump(responce_list, f)
 print(responce_list)
 
-#Save to json file
-with open(f"responce{batch_number}.json", "w") as f:
-    json.dump(responce_list, f)
